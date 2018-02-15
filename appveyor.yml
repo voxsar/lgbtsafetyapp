@@ -1,0 +1,58 @@
+#---------------------------------#
+#      general configuration      #
+#---------------------------------#
+
+# version format
+version: 1.0.{build}
+
+# you can use {branch} name in version format too
+# version: 1.0.{build}-{branch}
+
+# branches to build
+branches:
+  # whitelist
+  only:
+    - master
+    
+# Including commits with particular message or from specific user
+only_commits:
+  message: /build/                # Start a new build if message contains 'build'
+image: Visual Studio 2017
+
+# Test against the latest version of this Node.js version
+environment:
+  nodejs_version: "6"
+
+# scripts that run after cloning repositorys s
+install:
+  # by default, all script lines are interpreted as batch
+  - echo This is batch
+  # to run script as a PowerShell command prepend it with ps:
+  - ps: Install-Product node $env:nodejs_version
+  # batch commands start from cmd:
+  - cmd: cd 
+  - cmd: npm install
+  - cmd: npm install -g cordova
+  - cmd: cordova platform add windows
+  - cmd: cordova build windows -- --appx=uap
+  - cmd: copy C:\projects\\\platforms\windows\AppPackages\CordovaApp.Windows10_1.0.0.0_anycpu_debug_Test\CordovaApp.Windows10_1.0.0.0_anycpu_debug.appx C:\projects\agariaBilling
+build:
+    project: C:\projects\\\platforms\windows\CordovaApp.Windows10.jsproj
+build_script:
+  - cmd: cordova build windows -- --appx=uap
+test: off
+artifacts:
+  - path: CordovaApp.Windows10_1.0.0.0_AnyCPU_Debug.appx
+    name: CordovaAPPTest
+deploy:
+  release: $(appveyor_repo_tag_name)
+  description: 'Windows Universal App'
+  provider: GitHub
+  auth_token:
+    secure: c/lXAytCIOqiw0TYXn2QtcrMzjhSWbE0wO9M2CJiOy2v2QoS2aMWB4zTV2Ud6xbB # your encrypted token from GitHub
+    #/.*\.appx/            # upload all NuGet packages to release assets
+  draft: true
+  artifact: C:\projects\\\platforms\windows\AppPackages\CordovaApp.Windows10_1.0.0.0_anycpu_debug_Test\CordovaApp.Windows10_1.0.0.0_anycpu_debug.appx
+  prerelease: false
+  on:
+    branch: master                 # release from master branch only
