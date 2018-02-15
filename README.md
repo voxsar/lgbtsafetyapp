@@ -9,7 +9,8 @@ Ideally Sri Lanka or any country should accept all it's citizens as part of thei
 
 ## Getting Started
 
-Start by cloning to your PC
+Start by cloning to your PC, once done cd into directory and init the git (optional), this project will clone the entire directory including the cordova project and the builds
+branches may also clone unless specified
 
 ```
 git clone https://github.com/voxsar/lgbtsafetyapp.git
@@ -17,44 +18,52 @@ cd lgbtsafetyapp
 git init
 ```
 
-This is just an example application, but imagine it doing anything you want. Adding new features is easy too:
-
-```
-
-```
+This application starts of as a concept design that follows a evolutionary prototyping model to continiously improve the existing design, currently the app is in v0.x.y where the x increments are for major improvements and features
 
 The possibilities are endless.
 
 ### Building the Application
 
-Now that you have not done anything it's time to build your application:
+Travis CI and Appveyor have been used to continously build the master and release branches, hot fixes may be build based on commit message triggers as following
 
 ```
-
+hotfix-ci
 ```
 
-Yep. That's it. You should see the following output:
+You may also add the following platforms to cordova to prepare the builds for specific platforms
 
 ```
-
+cd mahhala
+cordova platform add android
+cordova platform add windows
+cordova platform add ios
 ```
 
 ### Deploying
 
-While you still have not done anything it's time to deploy your application. By running the following command you can deploy your application absolutely nowhere.
+Travis CI and Appveyor currently push the native android apps and windows mobile universal apps, however ios app requires a developer license that is not yet acquired and may not be acquired as such any contributor can used their developer license to build and release on behalf of the community *invitation*
+You may also use the cordova commands to build your application as shown below
+#### Android Unsigned APK Build
 
 ```
-
+cd mahhala
+cordova build android
 ```
 
-It's that simple. And when it comes time to scale the application, all you have to do is:
+#### Windows Unsigned APK Build
 
 ```
-
+cd mahhala
+cordova build appx-uwa
 ```
 
-I know right?
+#### IOS Unsigned APK Build
+
+```
+cd mahhala
+cordova build ios
+```
 
 ## Contributing
 
-You don't.
+Currently anyone can request to collaborate and contribute to the project including feature requests, code contribution, their developer license to build the ios port
