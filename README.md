@@ -12,7 +12,9 @@ Ideally Sri Lanka or any country should accept all it's citizens as part of thei
 Start by cloning to your PC
 
 ```
-
+git clone https://github.com/voxsar/lgbtsafetyapp.git
+cd lgbtsafetyapp
+git init
 ```
 
 This is just an example application, but imagine it doing anything you want. Adding new features is easy too:
