@@ -1,4 +1,4 @@
-# lgbtsafetyapp [![Build status](https://ci.appveyor.com/api/projects/status/bdap4333iay69740/branch/master?svg=true)](https://ci.appveyor.com/project/voxsar/agariabilling/branch/master)  [![Build Status](https://travis-ci.org/voxsar/agariaBilling.svg?branch=master)](https://travis-ci.org/voxsar/agariaBilling) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+# LGBT Safety App [![Build status](https://ci.appveyor.com/api/projects/status/bdap4333iay69740/branch/master?svg=true)](https://ci.appveyor.com/project/voxsar/agariabilling/branch/master)  [![Build Status](https://travis-ci.org/voxsar/agariaBilling.svg?branch=master)](https://travis-ci.org/voxsar/agariaBilling) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 ## tl;dr
 App that is inspired by yelp!, yamu or other rating services, except this app rates places, people and services that are safe and non discriminatory  towards LGBTQ+ communities and other discriminated minorities
 
